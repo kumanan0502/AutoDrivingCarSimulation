@@ -8,6 +8,6 @@ namespace AutoDrivingCarSimulation.Application.Interfaces
 {
     public  interface ISimulationService
     {
-        Task<Tuple<int,int,char>> performCommand(Tuple<int,int,char> currentPosition, int x,int y,char moveCommand);
+        Tuple<int,int,char> performCommand(Tuple<int,int,char> currentPosition, int x,int y,char moveCommand);
     }
 }

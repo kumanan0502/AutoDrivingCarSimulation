@@ -1,6 +1,7 @@
 ﻿using AutoDrivingCarSimulation.Application.Interfaces;
 using AutoDrivingCarSimulation.Domain.Models;
 using AutoDrivingCarSimulation.Infrastructure.Services;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,13 +13,15 @@ namespace TestAutoDrivingCarSimulation.UnitTest
 {
     public class CommonValidatorTest
     {
-        public ICommonValidator _CommonValidator;
+        private IServiceProvider _serviceProvider;
         public SimulationMatrix simulationField;
 
         [SetUp]
         public void Setup()
         {
-            _CommonValidator = new CommonValidator();
+            _serviceProvider = new ServiceCollection()
+             .AddScoped<ICommonValidator, CommonValidator>()
+             .BuildServiceProvider();
             simulationField = new SimulationMatrix();
         }
 
@@ -34,7 +37,8 @@ namespace TestAutoDrivingCarSimulation.UnitTest
         [TestCase("0 1")]
         public void Test_SimulationField_Fail(string strSimulationField)
         {
-            bool isValid = _CommonValidator.SimulationFieldValidate(strSimulationField, ref simulationField);
+            var service = _serviceProvider.GetRequiredService<ICommonValidator>();
+            bool isValid = service.SimulationFieldValidate(strSimulationField, ref simulationField);
 
             Assert.AreEqual(false, isValid);
         }
@@ -47,8 +51,8 @@ namespace TestAutoDrivingCarSimulation.UnitTest
         [TestCase("1 1")]
         public void Test_SimulationField_Success(string strSimulationField)
         {
-
-            bool isValid = _CommonValidator.SimulationFieldValidate(strSimulationField, ref simulationField);
+            var service = _serviceProvider.GetRequiredService<ICommonValidator>();
+            bool isValid = service.SimulationFieldValidate(strSimulationField, ref simulationField);
 
             Assert.AreEqual(true, isValid);
         }
@@ -68,8 +72,9 @@ namespace TestAutoDrivingCarSimulation.UnitTest
             Tuple<int, int, char> carPosition = new Tuple<int, int, char>(xPosition, yPosition, 'N');
             simulationField.xAxis = xPosition;
             simulationField.yAxis = yPosition;
-            
-            bool isValid = _CommonValidator.CarInititalPositionValidate(strInitialPosition, simulationField, ref carPosition);
+
+            var service = _serviceProvider.GetRequiredService<ICommonValidator>();
+            bool isValid = service.CarInititalPositionValidate(strInitialPosition, simulationField, ref carPosition);
 
             Assert.AreEqual(false, isValid);
         }
@@ -85,7 +90,8 @@ namespace TestAutoDrivingCarSimulation.UnitTest
             simulationField.xAxis = xPosition;
             simulationField.yAxis = yPosition;
 
-            bool isValid = _CommonValidator.CarInititalPositionValidate(strInitialPosition, simulationField, ref carPosition);
+            var service = _serviceProvider.GetRequiredService<ICommonValidator>();
+            bool isValid = service.CarInititalPositionValidate(strInitialPosition, simulationField, ref carPosition);
 
             Assert.AreEqual(true, isValid);
         }
@@ -98,7 +104,8 @@ namespace TestAutoDrivingCarSimulation.UnitTest
         public void Test_CarSimulationCommand_Fail(string strCarSimulationCommand)
         {
             char[] commanArray = new char[1000];
-            bool isValid = _CommonValidator.CarSimulationCommandValidate(strCarSimulationCommand, ref commanArray);
+            var service = _serviceProvider.GetRequiredService<ICommonValidator>();
+            bool isValid = service.CarSimulationCommandValidate(strCarSimulationCommand, ref commanArray);
 
             Assert.AreEqual(false, isValid);
         }
@@ -114,7 +121,8 @@ namespace TestAutoDrivingCarSimulation.UnitTest
         public void Test_CarSimulationCommand_Success(string strCarSimulationCommand)
         {
             char[] commanArray = new char[1000];
-            bool isValid = _CommonValidator.CarSimulationCommandValidate(strCarSimulationCommand, ref commanArray);
+            var service = _serviceProvider.GetRequiredService<ICommonValidator>();
+            bool isValid = service.CarSimulationCommandValidate(strCarSimulationCommand, ref commanArray);
 
             Assert.AreEqual(true, isValid);
         }
