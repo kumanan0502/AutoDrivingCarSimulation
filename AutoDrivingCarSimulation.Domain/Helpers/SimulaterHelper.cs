@@ -20,5 +20,40 @@ namespace AutoDrivingCarSimulation.Domain.Helpers
             [Description("West")]
             West = 'W'
         }
+
+        public enum Commands
+        {
+            [Description("Rotates the car by 90 degrees the the right")]
+            Right = 'R',
+            [Description("Rotates the car by 90 degrees the the Left")]
+            Left = 'L',
+            [Description("Moves Forward by 1 grid point")]
+            Forward = 'F'
+        }
+
+
+        #region [Error message const values]
+        public const string ErrorMessage_Format_IsNull = "Format is null.";
+        public const string ErrorMessage_Invalid_Format = "Invalid format Value.";
+        public const string ErrorMessage_Simulation_XPosition_Is_Not_Int = "Simulation Field XPosition value is not a valid int.";
+        public const string ErrorMessage_Simulation_XPosition_Is_Lesser_Than_Zero = "Simulation Field XPosition value is lesser than zero.";
+        public const string ErrorMessage_Simulation_YPosition_Is_Not_Int = "Simulation Field YPosition value is not a valid int.";
+        public const string ErrorMessage_Simulation_YPosition_Is_Lesser_Than_Zero = "Simulation Field YPosition value is lesser than zero.";
+
+        public const string ErrorMessage_CarInitialPosition_IsNull = "Car Initial position is null.";
+        public const string ErrorMessage_CarInitialPosition_Invalid = "Invalid Initial position Value.";
+        public const string ErrorMessage_CarInitialDirection_IsNull = "Invalid Initial direction is null.";
+        public const string ErrorMessage_CarInitialDirection_Invalid = "Invalid Initial position Value.";
+
+        public const string ErrorMessage_CarInitial_XPosition_Is_Not_Int = "Car Initial XPosition value is not a valid int.";
+        public const string ErrorMessage_CarInitial_XPosition_Is_Greater_Than_Simulation_XPosition = "Car Initial XPosition value is greater than simulation Field XPosition.";
+        public const string ErrorMessage_CarInitial_XPosition_Is_Lesser_Than_Zero = "Car Initial XPosition value is lesser than zero.";
+        public const string ErrorMessage_CarInitial_YPosition_Is_Not_Int = "Car Initial YPosition format value is not a valid.";
+        public const string ErrorMessage_CarInitial_YPosition_Is_Greater_Than_Simulation_YPosition = "Car Initial YPosition value is greater than simulation Field YPosition.";
+        public const string ErrorMessage_CarInitial_YPosition_Is_Lesser_Than_Zero = "Car Initial YXPosition value is lesser than zero.";
+
+        public const string ErrorMessage_CarSimulationCommand_IsNull = "Car simulation command is Null.";
+        public const string ErrorMessage_CarSimulationCommand_Invalid = "Invalid Car simulation command List.";
+        #endregion
     }
 }
