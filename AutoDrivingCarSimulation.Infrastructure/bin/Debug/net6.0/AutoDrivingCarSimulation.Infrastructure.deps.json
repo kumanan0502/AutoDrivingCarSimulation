@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "AutoDrivingCarSimulation.Infrastructure/1.0.0": {
+        "dependencies": {
+          "AutoDrivingCarSimulation.Application": "1.0.0"
+        },
+        "runtime": {
+          "AutoDrivingCarSimulation.Infrastructure.dll": {}
+        }
+      },
+      "AutoDrivingCarSimulation.Application/1.0.0": {
+        "runtime": {
+          "AutoDrivingCarSimulation.Application.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AutoDrivingCarSimulation.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AutoDrivingCarSimulation.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
