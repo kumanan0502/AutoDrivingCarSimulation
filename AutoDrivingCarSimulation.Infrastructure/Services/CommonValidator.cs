@@ -156,5 +156,30 @@ namespace AutoDrivingCarSimulation.Infrastructure.Services
 
             return isValid;
         }
+
+        public bool RestartOptionValidate(string strRestartOption, ref int restartoption)
+        {
+            bool isValid = true;
+
+            if (string.IsNullOrEmpty(strRestartOption))
+            {
+                Console.WriteLine(SimulaterHelper.ErrorMessage_RestartOptionIsNull);
+                return false;
+            }
+
+            if (!int.TryParse(strRestartOption, out restartoption))
+            {
+                Console.WriteLine(SimulaterHelper.ErrorMessage_RestartOptiont_Is_Not_Int);
+                return false;
+            }
+
+            if (!Enum.IsDefined(typeof(SimulaterHelper.RestartOptions), restartoption))
+            {
+                Console.WriteLine(SimulaterHelper.ErrorMessage_RestartOptiont_Invalid);
+                return false;
+            }
+
+            return isValid;
+        }
     }
 }

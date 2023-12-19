@@ -31,6 +31,14 @@ namespace AutoDrivingCarSimulation.Domain.Helpers
             Forward = 'F'
         }
 
+        public enum RestartOptions
+        {
+            [Description("[1] Start Over")]
+            StartOver = 1,
+            [Description("[2] Exit")]
+            Exit = 2
+        }
+
 
         #region [Error message const values]
         public const string ErrorMessage_Format_IsNull = "Format is null.";
@@ -45,6 +53,17 @@ namespace AutoDrivingCarSimulation.Domain.Helpers
         public const string ErrorMessage_CarInitialDirection_IsNull = "Invalid Initial direction is null.";
         public const string ErrorMessage_CarInitialDirection_Invalid = "Invalid Initial position Value.";
 
+        public const string Message_Selectoption_Description = "Please choose from the following options:";
+
+        public const string Message_RestartOption1 = "[1] Start Over";
+
+        public const string Message_RestartOption2 = "[2] Exit";
+
+        public const string ErrorMessage_RestartOptionIsNull = "Restart option is null.";
+        public const string ErrorMessage_RestartOptionIsNotValid = "Restart option is Invalid.";
+        public const string ErrorMessage_RestartOptiont_Is_Not_Int = "Restart option is not a valid int.";
+        public const string ErrorMessage_RestartOptiont_Invalid = "Restart select options.";
+
         public const string ErrorMessage_CarInitial_XPosition_Is_Not_Int = "Car Initial XPosition value is not a valid int.";
         public const string ErrorMessage_CarInitial_XPosition_Is_Greater_Than_Simulation_XPosition = "Car Initial XPosition value is greater than simulation Field XPosition.";
         public const string ErrorMessage_CarInitial_XPosition_Is_Lesser_Than_Zero = "Car Initial XPosition value is lesser than zero.";
@@ -54,6 +73,13 @@ namespace AutoDrivingCarSimulation.Domain.Helpers
 
         public const string ErrorMessage_CarSimulationCommand_IsNull = "Car simulation command is Null.";
         public const string ErrorMessage_CarSimulationCommand_Invalid = "Invalid Car simulation command List.";
+
+        public const string Message_SimulationField_format = $"Please enter the width and height of the simulation maze in X Y  format :";
+        public const string Message_Carin_Initial_Position = "Please enter initial position of the car in x y Direction format:";
+        public const string Message_CarSimulation_Command = "Please enter the commands for car ";
+
+        public const string Message_AfterSimulation_Finish_Result = "{0} {1} {2}";
+
         #endregion
     }
 }

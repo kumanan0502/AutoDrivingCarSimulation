@@ -126,5 +126,31 @@ namespace TestAutoDrivingCarSimulation.UnitTest
 
             Assert.AreEqual(true, isValid);
         }
+
+        [Test]
+        [TestCase("")]
+        [TestCase("x")]
+        [TestCase("5")]
+        [TestCase("-1")]
+        public void Test_Restartoption_Fail(string strRestartOption)
+        {
+            var service = _serviceProvider.GetRequiredService<ICommonValidator>();
+            int restartoption = -1;
+            bool isValid = service.RestartOptionValidate(strRestartOption, ref restartoption);
+
+            Assert.AreEqual(false, isValid);
+        }
+
+        [Test]
+        [TestCase("1")]
+        [TestCase("2")]
+        public void Test_Restartoption_Success(string strRestartOption)
+        {
+            var service = _serviceProvider.GetRequiredService<ICommonValidator>();
+            int restartoption = -1;
+            bool isValid = service.RestartOptionValidate(strRestartOption, ref restartoption);
+
+            Assert.AreEqual(true, isValid);
+        }
     }
 }

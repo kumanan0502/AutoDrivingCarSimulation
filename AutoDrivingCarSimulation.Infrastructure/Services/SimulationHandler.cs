@@ -26,7 +26,7 @@ namespace AutoDrivingCarSimulation.Infrastructure.Services
 
             foreach (var singleCommand in command)
             {
-                var singleCommandResult = _simulationService.performCommand(new Tuple<int, int, char>(xOut, yOut, postionOut),
+                var singleCommandResult = _simulationService.PerformCommand(new Tuple<int, int, char>(xOut, yOut, postionOut),
                                             field.xAxis, field.yAxis, singleCommand);
                 if (singleCommandResult != null)
                 {

@@ -11,7 +11,7 @@ namespace AutoDrivingCarSimulation.Infrastructure.Services
 {
     public class SimulationService : ISimulationService
     {
-        public Tuple<int, int, char> performCommand(Tuple<int, int, char> currentPosition, int x, int y, char moveCommand)
+        public Tuple<int, int, char> PerformCommand(Tuple<int, int, char> currentPosition, int x, int y, char moveCommand)
         {
             var x1 = currentPosition.Item1;
             var y1 = currentPosition.Item2;

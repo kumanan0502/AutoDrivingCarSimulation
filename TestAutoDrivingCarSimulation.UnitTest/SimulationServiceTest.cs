@@ -39,7 +39,7 @@ namespace TestAutoDrivingCarSimulation.UnitTest
             var moveCommand = 'F';
 
             var service = _serviceProvider.GetRequiredService<ISimulationService>();
-            var result = service.performCommand(_currentPosition, x, y, moveCommand);
+            var result = service.PerformCommand(_currentPosition, x, y, moveCommand);
 
             Assert.AreEqual(xExpected, result.Item1);
             Assert.AreEqual(yExpected, result.Item2);
@@ -62,7 +62,7 @@ namespace TestAutoDrivingCarSimulation.UnitTest
             var moveCommand = 'F';
 
             var service = _serviceProvider.GetRequiredService<ISimulationService>();
-            var result = service.performCommand(_currentPosition, x, y, moveCommand);
+            var result = service.PerformCommand(_currentPosition, x, y, moveCommand);
 
             Assert.AreEqual(xExpected, result.Item1);
             Assert.AreEqual(yExpected, result.Item2);
@@ -84,7 +84,7 @@ namespace TestAutoDrivingCarSimulation.UnitTest
             var moveCommand = 'R';
 
             var service = _serviceProvider.GetRequiredService<ISimulationService>();
-            var result = service.performCommand(_currentPosition, x, y, moveCommand);
+            var result = service.PerformCommand(_currentPosition, x, y, moveCommand);
 
 
             Assert.AreEqual(postionExpected, result.Item3);
@@ -103,7 +103,7 @@ namespace TestAutoDrivingCarSimulation.UnitTest
             var moveCommand = 'L';
 
             var service = _serviceProvider.GetRequiredService<ISimulationService>();
-            var result = service.performCommand(_currentPosition, x, y, moveCommand);
+            var result = service.PerformCommand(_currentPosition, x, y, moveCommand);
 
 
             Assert.AreEqual(postionExpected, result.Item3);

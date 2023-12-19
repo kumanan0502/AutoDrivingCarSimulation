@@ -15,5 +15,7 @@ namespace AutoDrivingCarSimulation.Application.Interfaces
         bool CarInititalPositionValidate(string input, SimulationMatrix simulationMatrix, ref Tuple<int, int, char> carPosition);
 
         bool CarSimulationCommandValidate(string strCarSimulationCommand, ref char[] commandArray);
+
+        bool RestartOptionValidate(string strRestartOption, ref int restartoption);
     }
 }
